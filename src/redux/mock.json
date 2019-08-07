@@ -1,0 +1,28 @@
+[{
+    "id": 1,
+    "name": "Musterfirma",
+    "amount": 10000.00,
+    "amount_left": 4500.00,
+    "date_of_first_puchase": "2019-07-07"
+},
+{
+    "id": 2,
+    "name": "Some Company Inc.",
+    "amount": 10000.00,
+    "amount_left": 4327.72,
+    "date_of_first_puchase": "2019-07-07"
+},
+{
+    "id": 3,
+    "name": "Cyberpunk",
+    "amount": 10000.00,
+    "amount_left": 20.5,
+    "date_of_first_puchase": "2019-07-07"
+},
+{
+    "id": 4,
+    "name": "HiperCorp 2050",
+    "amount": 10000.00,
+    "amount_left": 999.00,
+    "date_of_first_puchase": "2019-01-02"
+}]
