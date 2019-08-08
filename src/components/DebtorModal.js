@@ -7,9 +7,9 @@ import { formatter, backToDefault } from "../misc/Misc";
 import type { ModalPropsT } from "../misc/Types";
 
 export const DebtorModal = (props: ModalPropsT) => {
-    const { debtor } = props;
+    const { debtor, onClose, open } = props;
 
-    const [ textField, setTextField ] = useState(0);
+    const [ textField, setTextField ] = useState("");
     const [ valid, setValid ] = useState(true);
     const onChange = (e, { value }) => {
         setTextField(value);
@@ -19,12 +19,13 @@ export const DebtorModal = (props: ModalPropsT) => {
 
     useEffect(() => {
         debtor && setTextField(formatter.format(debtor.amount));
+        setValid(true);
     }, [debtor]);
 
     return (
       <Modal
-        open={props.open}
-        onClose={() => {}}
+        open={open}
+        onClose={() => onClose(null)}
         size='small'
       >
         <Modal.Header>
@@ -34,7 +35,7 @@ export const DebtorModal = (props: ModalPropsT) => {
             <Input value={textField} onChange={onChange} error={!valid} />
         </Modal.Content>
         <Modal.Actions>
-          <Button color='green' onClick={() => {}} disabled={!valid}>
+          <Button color='green' onClick={() => { onClose(debtor && { ...debtor, amount_left: debtor.amount - backToDefault(textField)})}} disabled={!valid}>
             <Icon name='checkmark' /> OK
           </Button>
         </Modal.Actions>

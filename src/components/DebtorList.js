@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Table } from "semantic-ui-react";
 
-import { LoadDebtors } from "../redux/actions";
+import { LoadDebtors, UpdateDebtor } from "../redux/actions";
 import { DebtorCell } from "./DebtorCell";
 import { DebtorModal } from "./DebtorModal";
 
@@ -18,7 +18,12 @@ export const DebtorList = () => {
     })
 
     const onSelect = (debtor:DebtorT ) => { selectField(debtor)};
-    const onDeselect = () => { selectField(null)};
+    const onModalClose = (updatedData: ?DebtorT) => { 
+        selectField(null);
+        if(updatedData) {
+            dispatch(UpdateDebtor(updatedData));
+        }
+    };
 
     return <div>
     <Table celled selectable>
@@ -35,6 +40,6 @@ export const DebtorList = () => {
     { debtors.map((debtor: DebtorT) => <DebtorCell debtor={debtor} onSelect={onSelect} />) }
     </Table.Body>
     </Table>
-    <DebtorModal open={!!selectedField} debtor={selectedField} onClose={() => onDeselect()} />
+    <DebtorModal open={!!selectedField} debtor={selectedField} onClose={onModalClose} />
     </div>
 }
