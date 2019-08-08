@@ -37,7 +37,7 @@ export const DebtorList = () => {
             </Table.Row>
         </Table.Header>
         <Table.Body>
-    { debtors.map((debtor: DebtorT) => <DebtorCell debtor={debtor} onSelect={onSelect} />) }
+    { debtors.map((debtor: DebtorT) => <DebtorCell debtor={debtor} onSelect={onSelect} key={"debtor-" + debtor.id} />) }
     </Table.Body>
     </Table>
     <DebtorModal open={!!selectedField} debtor={selectedField} onClose={onModalClose} />

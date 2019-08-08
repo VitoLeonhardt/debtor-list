@@ -32,7 +32,7 @@ export const DebtorModal = (props: ModalPropsT) => {
             {debtor ? debtor.name : ""}
         </Modal.Header>
         <Modal.Content>
-            <Input value={textField} onChange={onChange} error={!valid} />
+            <Input aria-label="modal-input" value={textField} onChange={onChange} error={!valid} />
         </Modal.Content>
         <Modal.Actions>
           <Button color='green' onClick={() => { onClose(debtor && { ...debtor, amount_left: debtor.amount - backToDefault(textField)})}} disabled={!valid}>
