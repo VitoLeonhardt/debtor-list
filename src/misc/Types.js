@@ -9,6 +9,17 @@ export type DebtorT = {
     date_of_first_purchase: string 
 };
 
+export type DebtorPropsT = {
+    debtor: DebtorT,
+    onSelect: Function
+}
+
+export type ModalPropsT = {
+    debtor: ?DebtorT,
+    open: boolean,
+    onClose: Function
+}
+
 // redux store type
 export type StoreT = {
     debtors: DebtorT[]

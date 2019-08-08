@@ -13,6 +13,8 @@ const initialState: StoreT = {
 export const DebtorReducer: Function = (state: StoreT = initialState, action: Object) => {
     switch(action.type) {
         case LOAD_DEBTORS:
+            // normally, this would invoke a saga or something, which would await a call from an API function,
+            // but here, we just mock it instead.
             return {...state, debtors: MockData }
         default:
             return state;
