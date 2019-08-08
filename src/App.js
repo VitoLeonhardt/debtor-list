@@ -1,9 +1,7 @@
 import React from 'react';
-import logo from './logo.svg';
 import { Provider } from "react-redux";
 import { createStore } from "redux";
 import { DebtorReducer } from "./redux/reducer";
-import './App.css';
 import { DebtorList } from './components/DebtorList';
 
 const store = createStore(DebtorReducer);

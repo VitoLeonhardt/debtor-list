@@ -14,7 +14,7 @@ export const DebtorModal = (props: ModalPropsT) => {
     const onChange = (e, { value }) => {
         setTextField(value);
         const actualValue = backToDefault(value);
-        setValid(actualValue !== NaN && debtor && (actualValue > debtor.amount - debtor.amount_left));
+        setValid(!isNaN(actualValue) && debtor && (actualValue > debtor.amount - debtor.amount_left));
     }
 
     useEffect(() => {
